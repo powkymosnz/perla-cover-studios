@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#17151e">
+<meta name="description" content="Your photos. Your story. An original coastal crime cover, made entirely on your device.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23fb805d'/%3E%3Ctext x='9' y='29' font-size='28' font-family='serif' fill='%2317151e'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="./style.css">
+<title>LA PERLA — Cover Studio</title>
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="./" aria-label="LA PERLA Cover Studio home"><span class="brand-icon">✳</span><span>LA PERLA<small>COVER STUDIO</small></span></a>
+  <div class="header-line">YOUR STORY. <span>BIG SCREEN ENERGY.</span></div>
+  <span class="offline"><i></i> 100% local & private</span>
+</header>
+<main class="studio">
+<aside class="direction sidebar">
+  <div class="section-heading"><span>01</span><h1>Set the scene</h1></div>
+  <p class="muted">A little sunshine. A little trouble.</p>
+  <div class="control-heading">PANEL LAYOUT <span>6 originals</span></div>
+  <div id="layouts" class="layouts" role="group" aria-label="Panel layouts"></div>
+  <div class="control-heading grade-heading">COLOUR STORY</div>
+  <div id="grades" class="grades" role="group" aria-label="Colour grades"></div>
+  <div class="intensity"><label for="strength">Grade intensity</label><output id="strength-value">65%</output></div>
+  <input id="strength" type="range" min="0" max="100" value="65" aria-label="Grade intensity">
+  <label class="toggle"><input id="ink" type="checkbox" checked><span>Illustrated ink</span><small>COMIC FINISH</small></label>
+  <div class="studio-note"><span>✦</span><p>Every cover has a story.<br><strong>Make this one yours.</strong></p></div>
+  <div class="local-note">NO ACCOUNT. NO UPLOADS. ALL YOURS.</div>
+</aside>
+<section class="workspace" aria-label="Live cover preview">
+  <div class="workspace-top"><div><span class="live-dot"></span> LIVE PREVIEW</div><button id="reset" class="quiet" title="Restore the original composition">↺ Reset studio</button></div>
+  <div class="format-picker" role="group" aria-label="Export size">
+    <button data-format="square" aria-pressed="true"><span>□</span> Square <small>1:1</small></button>
+    <button data-format="portrait" aria-pressed="false"><span>▯</span> Portrait <small>4:5</small></button>
+    <button data-format="landscape" aria-pressed="false"><span>▭</span> Wide <small>16:9</small></button>
+  </div>
+  <div id="stage" class="stage"><div class="canvas-wrap"><canvas id="cover" width="1080" height="1080" tabindex="0" aria-label="Cover preview. Click a panel to select it, drag to crop, scroll to zoom. Arrow keys move the selected photo."></canvas><div id="panel-outline" aria-hidden="true"><span></span></div></div></div>
+  <div class="preview-hint"><span>✥ Drag a panel to reframe</span><span>Scroll to zoom · Click to select</span></div>
+  <div class="export-bar"><div><strong id="export-dimensions">1080 × 1080</strong><small>FULL RESOLUTION · PNG</small></div><button id="export" class="export-button">Export cover <span>↗</span></button></div>
+  <p id="status" class="status" role="status">Your next main character moment starts here.</p>
+</section>
+<aside class="personalize sidebar">
+  <div class="section-heading"><span>02</span><h2>Make it yours</h2></div>
+  <button id="upload" class="upload"><span>＋</span><strong>Add your photos</strong><small>Choose or drop · JPG, PNG, WebP</small></button>
+  <input id="photo" type="file" accept="image/*" multiple hidden>
+  <div class="control-heading">PHOTO LIBRARY <span id="photo-count">4 photos</span></div>
+  <div id="library" class="library" aria-label="Photo library"></div>
+  <div class="panel-title"><label for="panel">EDIT PANEL</label><select id="panel" aria-label="Selected panel"></select></div>
+  <div class="intensity"><label for="zoom">Crop zoom</label><output id="zoom-value">1.0×</output></div>
+  <input id="zoom" type="range" min="1" max="3" step="0.01" value="1" aria-label="Panel crop zoom">
+  <div class="crop-actions"><button id="center">Center crop</button><button id="fill-all">Use in all panels</button></div>
+  <div class="divider"></div>
+  <div class="control-heading">THE HEADLINE <span>Live lettering</span></div>
+  <label class="text-label" for="title">Title</label><input id="title" type="text" maxlength="28" value="LA PERLA" spellcheck="false">
+  <div class="text-row"><div><label class="text-label" for="subtitle">Script subtitle</label><input id="subtitle" type="text" maxlength="36" value="La Perla"></div></div>
+  <label class="text-label" for="tagline">Tagline</label><input id="tagline" type="text" maxlength="65" value="A coastal crime story.">
+  <label class="text-label" for="badge">Edition badge</label><select id="badge"><option>SUMMER 2026</option><option>EST. 2026</option><option>COLLECTORS EDITION</option><option value="">No badge</option></select>
+  <label class="toggle frame-toggle"><input id="frame" type="checkbox" checked><span>Signature border</span></label>
+</aside>
+</main>
+<footer class="footer"><span>AN ORIGINAL COASTAL CRIME UNIVERSE</span><span>Made for the main character. <b>✦</b></span></footer>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

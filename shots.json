@@ -1,0 +1,37 @@
+[
+  {
+    "name": "1-cover.jpg",
+    "kind": "actual exported PNG displayed in Chrome and scaled without edits",
+    "query": "?format=landscape",
+    "layout": "Crossfire",
+    "grade": "Sunset",
+    "title": "LA PERLA",
+    "export": [1920, 1080],
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "name": "2-editor.jpg",
+    "kind": "live editor with an additional locally imported salsa.webp photo",
+    "query": "?format=square",
+    "layout": "Crossfire",
+    "grade": "Sunset",
+    "title": "LA PERLA",
+    "w": 1280,
+    "h": 960
+  },
+  {
+    "name": "3-cover.jpg",
+    "kind": "actual exported portrait PNG displayed in Chrome and scaled without edits",
+    "query": "?format=portrait",
+    "layout": "Coastline",
+    "grade": "Neon violet",
+    "title": "NOCHE DORADA",
+    "subtitle": "One last summer",
+    "tagline": "The coast never forgets.",
+    "badge": "COLLECTORS EDITION",
+    "export": [1080, 1350],
+    "w": 1024,
+    "h": 1280
+  }
+]
