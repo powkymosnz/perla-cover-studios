@@ -53,7 +53,7 @@ export function drawCover(canvas,state,photos){
   const layout=layouts[state.layout],grade=grades[state.grade],strength=state.strength/100;
   ctx.clearRect(0,0,w,h);ctx.fillStyle='#171020';ctx.fillRect(0,0,w,h);
   layout.panels.forEach((points,i)=>{
-    const p=state.panels[i],photo=photos[p.photo%photos.length];if(!photo)return;
+    const p=state.panels[i],photo=photos[p.photo];if(!photo)return;
     const b=panelBounds(points,w,h),path=panelPath(points,w,h);
     ctx.save();ctx.clip(path);
     const img=state.ink?photo.ink:photo.img,iw=img.width,ih=img.height;

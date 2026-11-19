@@ -57,3 +57,13 @@ All browser interaction and screenshot capture used the configured Playwright MC
 - Anton: https://github.com/google/fonts/tree/main/ofl/anton — app/fonts/Anton-OFL.txt.
 - Kaushan Script: https://github.com/google/fonts/tree/main/ofl/kaushanscript — app/fonts/KaushanScript-OFL.txt.
 - Application code: written in this session, MIT. vendor/makefun-app.ts and serve.ts are the unchanged supplied kit plumbing.
+
+## Sample photo fix — 2026-11-19
+
+Added the supplied beach, chiva and rooftop samples and assigned default panel i directly to photo i. Removed renderer index wrapping so every layout starts with a distinct photo in each of its five, six or seven panels.
+
+Verified all six layouts through their panel selectors in Playwright: Coastline 5, After hours 6, Seven sins 7, Headliner 5, Crossfire 5 and Heatwave 5, with no repeated default sample. All seven sample images decoded successfully. Imported speedboat.webp through the file input while offline; the library grew to eight photos. Import, editing and all three PNG downloads made zero runtime network requests and had zero failed requests; initialization used only local static files.
+
+Decoded the actual exported PNGs with Pillow and confirmed exact dimensions: square 1080×1080, portrait 1080×1350 and landscape 1920×1080. Retook and visually reviewed the screenshots in Chrome; both covers show salsa, domino, speedboat, ferris and beach once each. Final JPEGs: 1-cover.jpg 1280×720 / 194459 bytes, 2-editor.jpg 1280×960 / 156075 bytes, 3-cover.jpg 1024×1280 / 217345 bytes. All are below 256 KiB. Updated shots.json to describe the imported editor photo.
+
+Browser console: zero errors and warnings. JavaScript syntax and diff whitespace checks passed. Rebuilt out/dossier.json with the requested packaging command. The kit check completed with 5 passed and 0 failed; transcript and submission checks remain with the site.

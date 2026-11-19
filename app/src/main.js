@@ -1,7 +1,7 @@
 import {layouts,grades,formats,drawCover,panelPath,panelBounds,makeInkPhoto} from './cover.js';
 const $=id=>document.getElementById(id);
 const canvas=$('cover'),photos=[];
-const defaults=()=>({layout:0,grade:0,strength:65,ink:true,frame:true,format:'square',title:'LA PERLA',subtitle:'La Perla',tagline:'A coastal crime story.',badge:'SUMMER 2026',selected:2,panels:Array.from({length:7},(_,i)=>({photo:[2,1,0,3,2,0,1][i],zoom:1,x:i===2?.62:.5,y:.45}))});
+const defaults=()=>({layout:0,grade:0,strength:65,ink:true,frame:true,format:'square',title:'LA PERLA',subtitle:'La Perla',tagline:'A coastal crime story.',badge:'SUMMER 2026',selected:2,panels:Array.from({length:7},(_,i)=>({photo:i,zoom:1,x:i===2?.62:.5,y:.45}))});
 let state=defaults(),drag=null,pending=false,ready=false,outlineTimer;
 function highlightPanel(){
   const outline=$('panel-outline'),r=canvas.getBoundingClientRect(),parent=$('stage').getBoundingClientRect();
@@ -61,7 +61,7 @@ async function start(){
   $('export').disabled=true;$('upload').disabled=true;status('Setting the scene…');
   try{
     await Promise.all([document.fonts.load('32px Anton'),document.fonts.load('32px Kaushan')]);
-    const samples=[['salsa','Salsa nights'],['domino','Domino club'],['speedboat','Ocean escape'],['ferris','Neon boardwalk']];
+    const samples=[['salsa','Salsa nights'],['domino','Domino club'],['speedboat','Ocean escape'],['ferris','Neon boardwalk'],['beach','Beach umbrellas'],['chiva','Chiva ride'],['rooftop','Old town roofs']];
     for(const [file,name] of samples){const src=`./samples/${file}.webp`,img=await loadImage(src);photos.push({src,img,ink:makeInkPhoto(img),name});}
     ready=true;buildLibrary();const query=new URLSearchParams(location.search);if(formats[query.get('format')])state.format=query.get('format');syncUI();$('export').disabled=false;$('upload').disabled=false;status('Your next main character moment starts here.');window.__studioReady=true;
   }catch(error){status(`Could not start the studio: ${error.message}. Reload to try again.`);}
